@@ -24,7 +24,7 @@ productos:any[]=[{
   "ProductoID":1,
   "Modelo":"Sentra",
   "Descripcion":"4 puertas, familiar",
-  "Year":"febrero 3 2022",
+  "Year":"febrero 3 2023",
   "Precio":20000,
   "Marca":"NISSAN",
   "Color":"Morado",
