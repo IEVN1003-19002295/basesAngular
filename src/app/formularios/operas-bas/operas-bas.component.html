@@ -1,0 +1,38 @@
+<div>
+
+<h1>
+
+Operaciones
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Operaciones con Números</h2>
+    <form id="operationForm">
+        <div class="mb-3">
+            <label for="num1" class="form-label">Número 1</label>
+            <input type="number" class="form-control" [(ngModel)]="num1" name="num1" placeholder="Introduce el primer número" required>
+        </div>
+        <div class="mb-3">
+            <label for="num2" class="form-label">Número 2</label>
+            <input type="number" class="form-control" [(ngModel)]="num2" name="num2" placeholder="Introduce el segundo número" required>
+        </div>
+        <div class="mb-3">
+            <label for="operation" class="form-label">Operación</label>
+            <select class="form-select" id="operation" required>
+                <option value="sum">Suma</option>
+                <option value="subtraction">Resta</option>
+                <option value="multiplication">Multiplicación</option>
+                <option value="division">División</option>
+            </select>
+        </div>
+        <button (click)="sumar()" type="submit" class="btn btn-primary">Calcular</button>
+    </form>
+
+    <div class="mt-4">
+        <h4>Resultado: {{resultado}}</h4>
+        <p id="result">-</p>
+    </div>
+</div>
+
+</h1>
+
+</div>

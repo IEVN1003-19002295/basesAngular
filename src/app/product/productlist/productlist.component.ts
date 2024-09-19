@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProducto } from '../producto';
 
 @Component({
   selector: 'app-productlist',
@@ -19,7 +20,7 @@ showImage():void{
 
 }
 
-productos:any[]=[{
+producto:IProducto[]=[{
 
   "ProductoID":1,
   "Modelo":"Sentra",
