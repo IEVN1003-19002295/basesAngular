@@ -1,11 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Ohms de una resistencia</title>
-</head>
-<body>
-    
-</body>
-</html>
+<div class="main-container">
+    <div class="container">
+      <h1>Calculo de Ohms</h1>
+      <div [formGroup]="valoresResistencia">
+        <div class="mb-3">
+          <label for="resDecimal">Color de la primer Banda:</label>
+          <select formControlName="resDecimal" id="resDecimal">
+            <option value="0">Negro</option>
+            <option value="1">Café</option>
+            <option value="2">Rojo</option>
+            <option value="3">Naranja</option>
+            <option value="4">Amarillo</option>
+            <option value="5">Verde</option>
+            <option value="6">Azul</option>
+            <option value="7">Violeta</option>
+            <option value="8">Gris</option>
+            <option value="9">Blanco</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="resUnitaria">Color de la segunda Banda:</label>
+          <select formControlName="resUnitaria" id="resUnitaria">
+            <option value="0">Negro</option>
+            <option value="1">Café</option>
+            <option value="2">Rojo</option>
+            <option value="3">Naranja</option>
+            <option value="4">Amarillo</option>
+            <option value="5">Verde</option>
+            <option value="6">Azul</option>
+            <option value="7">Violeta</option>
+            <option value="8">Gris</option>
+            <option value="9">Blanco</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="resMultiplicador">Color de la tercer Banda:</label>
+          <select formControlName="resMultiplicador" id="resMultiplicador">
+            <option value="0">Negro</option>
+            <option value="1">Café</option>
+            <option value="2">Rojo</option>
+            <option value="3">Naranja</option>
+            <option value="4">Amarillo</option>
+            <option value="5">Verde</option>
+            <option value="6">Azul</option>
+            <option value="7">Violeta</option>
+            <option value="8">Gris</option>
+            <option value="9">Blanco</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label>Tolerancia:</label>
+          <div class="radio-group">
+            <label>Oro
+              <input type="radio" formControlName="tipoTolerancia" value="oro">
+            </label>
+            <label>Plata
+              <input type="radio" formControlName="tipoTolerancia" value="plata">
+            </label>
+          </div>
+        </div>
+        <button [disabled]="!valoresResistencia.valid" (click)="onSubmit()">Calcular</button>
+      </div>
+    </div>
+  
+    <div *ngIf="mostrarInfo" class="info-box">
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th>Banda 1</th>
+            <th>Banda 2</th>
+            <th>Banda 3</th>
+            <th>Tolerancia</th>
+            <th>Total</th>
+            <th>Mínimo</th>
+            <th>Máximo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td [ngStyle]="{'background-color': colorBanda1}"></td>
+            <td [ngStyle]="{'background-color': colorBanda2}"></td>
+            <td [ngStyle]="{'background-color': colorBanda3}"></td>
+            <td [ngStyle]="{'background-color': colorTolerancia}"></td>
+            <td>{{ resTotal }}</td>
+            <td>{{ resMinima }}</td>
+            <td>{{ resMaxima }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
