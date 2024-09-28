@@ -67,6 +67,7 @@ export class ResistenciaComponent implements OnInit {
   
 
   onSubmit(): void {
+    
     this.calculoResistencia();
     this.mostrarInfo = true;
   }
