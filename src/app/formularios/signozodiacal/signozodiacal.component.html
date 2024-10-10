@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Angular - Signos Zodiacales Chinos</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <h1>Formulario de Signo Zodiacal Chino</h1>
+            <div [formGroup]="formularioSigno">
+
+                <div class="mb-3">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" formControlName="nombre">
+                </div>
+
+                <div class="mb-3">
+                    <label for="aPaterno">Apellido Paterno:</label>
+                    <input type="text" id="aPaterno" formControlName="aPaterno">
+                </div>
+
+                <div class="mb-3">
+                    <label for="aMaterno">Apellido Materno:</label>
+                    <input type="text" id="aMaterno" formControlName="aMaterno">
+                </div>
+
+                <div class="mb-3">
+                    <label>Fecha de Nacimiento:</label>
+                    <div class="date-group">
+                        <label for="dia">Día:</label>
+                        <input type="number" id="dia" formControlName="dia" min="1" max="31">
+
+                        <label for="mes">Mes:</label>
+                        <input type="number" id="mes" formControlName="mes" min="1" max="12">
+
+                        <label for="año">Año:</label>
+                        <input type="number" id="año" formControlName="año" min="1900">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Género:</label>
+                    <div class="radio-group">
+                        <label>Masculino
+                            <input type="radio" formControlName="genero" value="Masculino">
+                        </label>
+                        <label>Femenino
+                            <input type="radio" formControlName="genero" value="Femenino">
+                        </label>
+                    </div>
+                </div>
+
+                <button (click)="calculoSigno()">Imprimir</button>
+            </div>
+        </div>
+
+        <div *ngIf="mostrarInfo" class="info-box">
+            <h3>Información Personal:</h3>
+            <p><strong>Nombre Completo:</strong> {{ formularioSigno.get('nombre')?.value }} {{ formularioSigno.get('aPaterno')?.value }} {{ formularioSigno.get('aMaterno')?.value }}</p>
+            <p><strong>Edad:</strong> {{ edad }} años</p>
+            <p><strong>Signo Zodiacal Chino:</strong></p>
+            <div>
+                <p>{{ signoChino }}</p>
+                <img [src]="signoImagen" alt="{{ signoChino }}" class="signo-img">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
